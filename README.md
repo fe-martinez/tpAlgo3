@@ -1,6 +1,6 @@
 # tpAlgo3
 
-**Integrantes:** Clara Ruano Frúgoli, Francisco Ezequiel Martínez.
+**Integrantes:** Clara Ruano Frugoli, Francisco Ezequiel Martínez.
 
 **Juego:** Motherload
  - Video: https://www.youtube.com/watch?v=QCMbRe8ij5g
