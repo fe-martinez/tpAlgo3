@@ -1,4 +1,4 @@
-# tpAlgo3
+# TP Algo3
 
 **Integrantes:** Clara Ruano Frugoli, Francisco Ezequiel Martínez.
 
