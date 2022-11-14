@@ -64,42 +64,6 @@ public class TiendaDeMejoras extends Entidad{
 		this.mejoras.remove(codigo);
 	}
 	
-	//Recibe la opcion elegida y genera el código de búsqueda.
-	private String codigoMejora(char opcion, int tier) {
-		String busqueda = "";
-		busqueda += opcion;
-		busqueda += tier;
-		return busqueda;
-	}
-	
-	//Imprime por pantalla las opciones que hay para comprar.
-	private void promptMejoras() {
-		System.out.println("----------------------------------------");
-		System.out.println("Mejora a comprar:");
-		System.out.println("I para mejoras del inventario\nV para mejoras de vida\nT para mejoras de tanque");
-		System.out.print("Opcion: ");
-	}
-	
-	//Imprime por pantalla las mejoras que hay para comprar según la opción elegida.
-	private void promptOpciones(char opcion) {
-		if(opcion == 'I') {
-			System.out.println("Seleccione el tier de mejora: ");
-			System.out.println("(1)+15 por $750\n(2)+25 por $2000\n(3)+40 por $5000\n(4)+60 por $20000\n(5)+70 por $100000\n(6)+120 por $150000");
-			System.out.print("Opcion: ");
-		} else if(opcion == 'V') {
-			System.out.println("Seleccione el tier de mejora: ");
-			System.out.println("(1)+17 por $750\n(2)+30por $2000\n(3)+50 por $5000\n(4)+80 por $20000\n(5)+120 por $100000\n(6)+180 por $150000");
-			System.out.print("Opcion: ");
-		} else if(opcion == 'T') {
-			System.out.println("Seleccione el tier de mejora: ");
-			System.out.println("(1)+15 por $750\n(2)+25 por $2000\n(3)+40 por $5000\n(4)+60 por $20000\n(5)+70 por $100000\n(6)+120 por $150000");
-			System.out.print("Opcion: ");
-		} else {
-			System.out.println("Todavia no tenemos ese item a la venta :P");
-		}
-	}
-	
-	
 	//Permite vender la Mejora dada al Jugador dado.
 	public void vender(Jugador jugador, MejoraInstantanea mejora) {
 		mejora.utilizar(jugador);
@@ -109,20 +73,12 @@ public class TiendaDeMejoras extends Entidad{
 	//Permite al Jugador dado interactuar con la Tienda actual.
 	@Override
 	public void interactuar(Jugador jugador) {
-		this.input = new Scanner(System.in);
-		promptMejoras();
-		char opcion = input.next().charAt(0);
-	
-		promptOpciones(opcion);
-		int tier = input.nextInt();
-		String codigo = codigoMejora(opcion, tier);
-		
+		String codigo = VistaTiendasConsola.mejoras();
 		MejoraInstantanea mejora = this.mejoras.get(codigo);
 		if(mejora == null) {
 			System.out.println("No tenemos esa mejora o ya la vendimos :(");
 			return;
 		}
-		
 		vender(jugador, mejora);
 		eliminarMejora(codigo);
 	}

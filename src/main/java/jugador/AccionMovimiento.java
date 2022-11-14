@@ -4,7 +4,6 @@ import terreno.PisoSuperior;
 import terreno.Suelo;
 import terreno.Tierra;
 import terreno.TipoEntidad;
-import tp.Main;
 
 public class AccionMovimiento implements Accion{
 	private static final double GASTO_COMBUSTIBLE_MOVIMIENTO = 0.15;
@@ -96,7 +95,7 @@ public class AccionMovimiento implements Accion{
 		pj.setX(nueva.getX());
 		pj.setY(nueva.getY());
 		
-		if(pj.getY() == 0 && this.tiendas != null && tiendas.devolverTiendas().get(pj.getX()) != null) {
+		if(pj.getY() == 0 && this.tiendas != null && tiendas.getTiendaPos(pj.getX()) != null) {
 			if(tiendas.colisionEntidad(pj.getPosicion()).getTipoEntidad() == TipoEntidad.TIENDA) {
 				tiendas.colisionEntidad(pj.getPosicion()).interactuar(pj);
 			}

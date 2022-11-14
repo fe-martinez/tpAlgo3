@@ -2,8 +2,6 @@ package tiendas;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.Scanner;
-
 import jugador.Jugador;
 import jugador.Posicion;
 import terreno.Entidad;
@@ -15,7 +13,6 @@ public class EstacionDeServicio extends Entidad implements EstacionDeMantenimien
 	private static final List<Integer> LITROS_DISPONIBLES = Arrays.asList(5, 10, 25, 50, 100);
 	private static final int PRECIO_COMBUSTIBLE = 1;
 	private int cantidad;
-	private Scanner sc;
 	
 	public EstacionDeServicio(Posicion posicion) {
 		super(posicion, TIPO, LETRA);
@@ -43,14 +40,6 @@ public class EstacionDeServicio extends Entidad implements EstacionDeMantenimien
 		return cantidadDeCombustible * EstacionDeServicio.PRECIO_COMBUSTIBLE;
 	}
 	
-	//Imprime por pantalla las opciones de carga.
-	private void prompt_nafta() {
-		System.out.println("---------------------------");
-		System.out.println("Indique cuanto quiere cargar: 5, 10, 25, 50 (Litros)");
-		System.out.println("o indique 100 para llenar el tanque.");
-		System.out.println("Cantidad: ");
-	}
-	
 	//Permite vender a un jugador dado una cantidad dada de combustible.
 	public void vender(Jugador jugador, double cantidad) {
 		double cantidadCombustible = cantidadDeCombustible(cantidad, jugador.getNave().getCapacidadTanque(), jugador.getNave().getNivelDeCombustible());
@@ -66,9 +55,7 @@ public class EstacionDeServicio extends Entidad implements EstacionDeMantenimien
 	@Override
 	//Realiza la interacción del Jugador dado con la Tienda actual.
 	public void interactuar(Jugador jugador) {
-		prompt_nafta();
-		this.sc = new Scanner(System.in);
-		this.cantidad = sc.nextInt();
+		VistaTiendasConsola.nafta();
 		if(EstacionDeServicio.LITROS_DISPONIBLES.contains(this.cantidad)){
 			vender(jugador,this.cantidad);
 		}

@@ -1,38 +1,41 @@
 package terreno;
-
 import jugador.Posicion;
 
 public class Suelo {
-	ConfigSuelo config;
+	private Bloque[][] bloques;
+	private int alto;
+	private int ancho;
+
+	public Suelo(int alto, int ancho) {
+		if(alto < 0 || ancho < 0) {
+			return; //Excepcion.
+		}
+		this.alto = alto;
+		this.ancho = ancho;
+		this.bloques = FabricaDeSuelo.crear(alto, ancho);
+	}
 	
-	public Suelo(ConfigSuelo config) {
-		if(config == null) {
-			//throw an exception
+	//Devuelve el bloque de la posicion dada
+	public Bloque getBloque(Posicion pos) {
+		return(bloques[pos.getY()][pos.getX()]);
+	}
+	
+	
+	//Destruye el bloque de la posicion dada
+	public void destruirBloque(Posicion pos) {
+		bloques[pos.getY()][pos.getX()] = new Aire();
+	}
+	
+	//Devuelve true si el casillero de la posicion dada está vacío y false en caso contrario.
+	public boolean casilleroVacio(Posicion posicion) {
+		if(posicion.getY() == this.alto - 1) {
+			return false;
 		}
 		
-		this.config = config;
-		
+		return(bloques[posicion.getY()][posicion.getX()] instanceof Aire);
 	}
-	
-	//Devuelve el bloque de la posición especificada.
-	public Bloque getBloque(Posicion pos) {
-		return config.getBloque(pos);
-	}
-	
-	//Destruye el bloque de la posición especificada.
-	public void destruirBloque(Posicion pos) {
-		config.destruirBloque(pos);
-	}
-	
-	//Devuelve true si el casillero de la posición especificada está vacío, false en caso contrario.
-	public boolean casilleroVacio(Posicion posicion) {
-		return config.casilleroVacio(posicion);
-	}
-	
-	//Devuelve el alto del suelo.
+
 	public int getAlto() {
-		return config.getAlto();
+		return this.alto;
 	}
-	
-	
 }

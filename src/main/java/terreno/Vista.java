@@ -1,6 +1,9 @@
 package terreno;
 
 import jugador.Jugador;
+
+import java.util.Scanner;
+
 import jugador.Inventario;
 import jugador.Posicion;
 import mejoras.Usable;
@@ -13,6 +16,7 @@ public class Vista {
 	private Inventario inventario;
 	private int ancho;
 	private int alto;
+	private Scanner sc;
 
 	public Vista(PisoSuperior tiendas, Suelo suelo, Jugador pj, Inventario inventario, int ancho, int alto) {
 		if(tiendas == null || suelo == null || pj == null) {
@@ -26,7 +30,6 @@ public class Vista {
 		this.alto = alto;
 	}
 
-
 	//Imprime el terreno y los datos del jugador recibido.
 	public void imprimir(Jugador pj) {
 		int x = pj.getX();
@@ -37,7 +40,7 @@ public class Vista {
 			if(pj.getPosicion().getX() == i && pj.getPosicion().getY() == 0) {
 				System.out.print(this.pj.getLetra());
 			} else{
-				Entidad tiendaActual = tiendas.devolverTiendas().get(i);
+				Entidad tiendaActual = tiendas.getTiendaPos(i);
 				if(tiendaActual != null) {
 					System.out.print(tiendaActual.getLetra());
 				} else {
@@ -82,5 +85,18 @@ public class Vista {
 			System.out.print('|');
 		}
 		System.out.print('\n');
+	}
+	
+	public int tiendasPorConsola(String llamado) {
+		if(llamado == "nafta") {
+			System.out.println("---------------------------");
+			System.out.println("Indique cuanto quiere cargar: 5, 10, 25, 50 (Litros)");
+			System.out.println("o indique 100 para llenar el tanque.");
+			System.out.println("Cantidad: ");
+			this.sc = new Scanner(System.in);
+			int cantidad = sc.nextInt();
+			return cantidad;
+		}
+		return -1;
 	}
 }

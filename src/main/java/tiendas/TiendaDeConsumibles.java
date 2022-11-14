@@ -2,8 +2,6 @@ package tiendas;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Scanner;
-
 import jugador.Jugador;
 import jugador.Posicion;
 import mejoras.MejoraDinamita;
@@ -19,7 +17,6 @@ public class TiendaDeConsumibles extends Entidad {
 	private static final char LETRA = '*';
 	private static final TipoEntidad TIPO = TipoEntidad.TIENDA;
 	Map<Character, Usable> usables;
-	private Scanner sc;
 	
 	public TiendaDeConsumibles(Posicion posicion) {
 		super(posicion, TIPO, LETRA);
@@ -34,14 +31,6 @@ public class TiendaDeConsumibles extends Entidad {
 		this.usables.put('X', new MejoraTanqueExtra());
 		this.usables.put('T', new MejoraTeleport());
 		this.usables.put('D', new MejoraDinamita(null));
-	}
-	
-	//Imprime por pantalla las opciones de Mejora que se pueden comprar.
-	public void prompt_consumibles() {
-		System.out.println("---------------------------------------");
-		System.out.println("Consumible a comprar: ");
-		System.out.println("D para dinamita, E para explosivos, R para HullRepair, X para tanque extra, T para tp");
-		System.out.print("Opcion: ");
 	}
 	
 	//Le vende la opción dada al Jugador dado.
@@ -61,9 +50,7 @@ public class TiendaDeConsumibles extends Entidad {
 	@Override
 	//Permite al Jugador dado interactuar con la Tienda actual.
 	public void interactuar(Jugador jugador) {
-		this.sc = new Scanner(System.in);
-		prompt_consumibles();
-		char opcion = sc.next().charAt(0);
+		char opcion = VistaTiendasConsola.consumibles();
 		vender(jugador, opcion);
 	}
 }
