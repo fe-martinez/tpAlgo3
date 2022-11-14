@@ -17,7 +17,7 @@ public abstract class Mineral implements Bloque {
 	}
 	
 	//Devuelve la letra que representa al Mineral actual.
-	public char getLetra() {
+	public char getBloqueID() {
 		return this.letra;
 	}
 }

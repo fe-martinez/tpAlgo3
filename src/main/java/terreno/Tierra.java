@@ -7,7 +7,7 @@ public class Tierra implements Bloque {
 	}
 
 	//Devuelve la letra que representa la clase.
-	public char getLetra() {
+	public char getBloqueID() {
 		return Tierra.LETRA;
 	}
 

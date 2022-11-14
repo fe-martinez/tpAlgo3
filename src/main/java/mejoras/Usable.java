@@ -16,7 +16,7 @@ public abstract class Usable {
 	public void utilizar(Jugador jugador) {
 	}
 	
-	public char getLetra() {
+	public char getMejoraID() {
 		return this.letra;
 	}
 	

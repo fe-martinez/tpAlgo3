@@ -55,7 +55,8 @@ public class EstacionDeServicio extends Entidad implements EstacionDeMantenimien
 	@Override
 	//Realiza la interacción del Jugador dado con la Tienda actual.
 	public void interactuar(Jugador jugador) {
-		VistaTiendasConsola.nafta();
+		this.cantidad = VistaTiendasConsola.nafta();
+		
 		if(EstacionDeServicio.LITROS_DISPONIBLES.contains(this.cantidad)){
 			vender(jugador,this.cantidad);
 		}

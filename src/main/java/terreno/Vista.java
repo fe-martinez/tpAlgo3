@@ -38,11 +38,11 @@ public class Vista {
 		for(int i = 0; i < this.ancho; i++) {
 			System.out.print(' ');
 			if(pj.getPosicion().getX() == i && pj.getPosicion().getY() == 0) {
-				System.out.print(this.pj.getLetra());
+				System.out.print(this.pj.getBloqueID());
 			} else{
 				Entidad tiendaActual = tiendas.getTiendaPos(i);
 				if(tiendaActual != null) {
-					System.out.print(tiendaActual.getLetra());
+					System.out.print(tiendaActual.getEntidadID());
 				} else {
 					System.out.print(' ');
 				}
@@ -55,11 +55,11 @@ public class Vista {
 			for(int j = 0; j < this.ancho; j++) {
 				if(x > 0 && (j == x && i == y)) {
 					System.out.print(' ');
-					System.out.print(pj.getLetra());
+					System.out.print(pj.getBloqueID());
 					System.out.print(' ');
 				} else {
 					System.out.print(' ');
-					System.out.print(suelo.getBloque(new Posicion(j, i)).getLetra());
+					System.out.print(suelo.getBloque(new Posicion(j, i)).getBloqueID());
 					System.out.print(' ');
 				}
 			}
@@ -73,7 +73,7 @@ public class Vista {
 		System.out.print("Minerales recolectados: ");
 		for(Mineral actual: inventario.getMinerales()) {
 			System.out.print('|');
-			System.out.print(actual.getLetra());
+			System.out.print(actual.getBloqueID());
 			System.out.print('|');
 		}
 		System.out.print('\n');
@@ -81,7 +81,7 @@ public class Vista {
 		System.out.print("Consumibles en el inventario: ");
 		for(Usable actual: inventario.getUsables()) {
 			System.out.print('|');
-			System.out.print(actual.getLetra());
+			System.out.print(actual.getMejoraID());
 			System.out.print('|');
 		}
 		System.out.print('\n');

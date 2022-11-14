@@ -69,7 +69,7 @@ public class Jugador implements Bloque {
 	//------------------------------------------------
 	
 	//Devuelve la letra que representa a la clase.
-	public char getLetra() {
+	public char getBloqueID() {
 		return Jugador.LETRA;
 	}
 	

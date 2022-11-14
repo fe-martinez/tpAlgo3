@@ -8,7 +8,7 @@ public class FabricaDeMineralesTest {
 
 	@Test
 	public void devuelveMineralCorrecto() {
-		assertEquals(FabricaDeMinerales.crear("Cobre").getLetra(), 'C');
+		assertEquals(FabricaDeMinerales.crear("Cobre").getBloqueID(), 'C');
 	}
 	
 	@Test

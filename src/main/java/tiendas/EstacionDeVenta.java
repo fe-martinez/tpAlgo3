@@ -23,7 +23,7 @@ public class EstacionDeVenta extends Entidad {
 	}
 	
 	//Devuelve la letra de la Tienda actual.
-	public char getLetra() {
+	public char getEntidadID() {
 		return EstacionDeVenta.LETRA;
 	}
 		

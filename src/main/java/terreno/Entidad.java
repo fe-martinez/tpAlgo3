@@ -25,7 +25,7 @@ public abstract class Entidad {
 		return this.tipo;
 	}
 	
-	public char getLetra() {
+	public char getEntidadID() {
 		return this.letra;
 	}
 }
