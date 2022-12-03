@@ -437,7 +437,12 @@ public class VistaTiendaDeMejoras implements VistaEntidad{
 	//Pero si lo vamos a llamar desde otro lado no tiene sentido pasarlo por parámetro xdd
 	public void mostrar() {
 		if(!this.mostrando) {
-			this.root.getChildren().add(this.ventana);			
+			try{
+				this.root.getChildren().add(this.ventana);
+			}
+			catch(IllegalArgumentException e){
+				return;
+			}
 		}
 	}
 
