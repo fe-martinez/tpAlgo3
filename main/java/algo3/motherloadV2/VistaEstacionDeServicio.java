@@ -10,8 +10,7 @@ public class VistaEstacionDeServicio extends VistaEstacionDeMantenimiento {
 	final static String PATH_FONDO = "../motherloadV2/src/rsc/Fuel-512.png";
 	static List<String> keys = List.of("5","10","25","50","Fill","Close");
 	EstacionDeServicio tienda;
-	
-	//Esta lista es la que va
+
 	static List<String> imagePath = List.of("../motherloadV2/src/rsc/Tiendas/Botones/button5.png",
 			"../motherloadV2/src/rsc/Tiendas/Botones/button10.png",
 			"../motherloadV2/src/rsc/Tiendas/Botones/button25.png",
@@ -21,9 +20,6 @@ public class VistaEstacionDeServicio extends VistaEstacionDeMantenimiento {
 	
 	public VistaEstacionDeServicio(Stage stage, Group root,EstacionDeServicio tienda, Jugador pj) {
 		super(stage,root,tienda,pj,PATH_FONDO,imagePath,keys);
-		
-		
-		this.tienda = tienda;
 	}
 
 }
