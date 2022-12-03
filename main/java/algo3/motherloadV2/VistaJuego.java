@@ -83,6 +83,7 @@ public class VistaJuego {
 			@Override
 			public void handle(long now) {
 				dibujar(context, juego, hud, imagenes, imagenesPJ);
+				
 		    	//Convertir input y realizar accion son bastante diferentes a los de la Etapa 2. Estan integrados a esta version
 		    	// y no a la de consola.
 				var acciones = new ArrayList<Accion>();
@@ -93,7 +94,7 @@ public class VistaJuego {
 					}
 				}
 				long dt = last == 0 ? 0 : now - last;
-				juego.realizarAccion(acciones, keysPressed, dt);
+				juego.realizarAccion(acciones, dt);
 				last = now;
 			}
         }.start();
@@ -132,8 +133,19 @@ public class VistaJuego {
 		context.drawImage(imagenes.imagenADibujar(), ((WIDTH/2)) - (GRILLA_PJ_ANCHO/2), (HEIGHT/2));
 		
 		if(jugador.getTipoAnimacion() == 1) {
-			particulas.addAll(dibujarParticulas(jugador));
+			particulas.addAll(dibujarParticulasTierra(jugador, (WIDTH/2), (HEIGHT/2) + 56));
+		} else if(jugador.getTipoAnimacion() == 2) {
+			particulas.addAll(dibujarParticulasTierra(jugador, (WIDTH/2) + 32, (HEIGHT/2) + 32));
+		} else if(jugador.getTipoAnimacion() == 3) {
+			particulas.addAll(dibujarParticulasTierra(jugador, (WIDTH/2) - 32, (HEIGHT/2) + 32));
 		}
+		
+		if(jugador.getTipoAnimacion() == 3) {
+			particulas.addAll(dibujarParticulasHumo(jugador, WIDTH/2 + GRILLA_PJ_ANCHO/4, HEIGHT/2 + GRILLA_PJ_ALTO/2 - 10));
+		} else {
+			particulas.addAll(dibujarParticulasHumo(jugador, WIDTH/2 - GRILLA_PJ_ANCHO/2, HEIGHT/2 + GRILLA_PJ_ALTO/2 - 10));
+		}
+		
 		
 	}
 	
@@ -204,16 +216,27 @@ public class VistaJuego {
     	return imagenes;
     }
     
-    private List<Particulas> dibujarParticulas(Jugador pj) {
+    private List<Particulas> dibujarParticulasTierra(Jugador pj, double posStartX, double posStartY) {
     	var particulas = new ArrayList<Particulas>();
     	
-    	for(int i = 0; i < 1; i++) {
-    		Particulas p = new Particulas((WIDTH/2), (HEIGHT/2) + 48, new Posicion((Math.random() - 0.5), Math.random()), Math.random() * 10, 1.0, Color.SANDYBROWN);
+    	for(int i = 0; i < 2; i++) {
+    		//En orden -> Posicion de inicio X, Posicion de inicio Y, vector con la velocidad, tamaño de la particula, duracion, color.
+    		Particulas p = new Particulas(posStartX, posStartY, new Posicion((Math.random() - 0.5) * 2, Math.random()), Math.random() * 10, 0.5, Color.rgb(74, 48, 35));
     		particulas.add(p);
     	}
     	
     	return particulas;
     }
+    
+    private List<Particulas> dibujarParticulasHumo(Jugador pj, double posStartX, double posStartY) {
+    	var particulas = new ArrayList<Particulas>();
+    	
+    	Particulas p = new Particulas(posStartX, posStartY, new Posicion((Math.random() - 0.5), Math.random() * -4), Math.random() * 30, 0.3, Color.rgb(181, 181, 181, 0.3));
+    	particulas.add(p);
+    	
+    	return particulas;
+    }
+    
     
     
 }
