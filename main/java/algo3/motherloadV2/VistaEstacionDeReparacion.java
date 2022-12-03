@@ -9,9 +9,7 @@ import tiendas.EstacionDeReparacion;
 public class VistaEstacionDeReparacion extends VistaEstacionDeMantenimiento {
 	final static String PATH_FONDO = "../motherloadV2/src/rsc/Tiendas/EstacionDeReparacion/HealthStation.png";
 	static List<String> keys = List.of("5","10","25","50","Fill","Close");
-	EstacionDeReparacion tienda;
-	
-	//Esta lista es la que va
+		
 	static List<String> imagePath = List.of("../motherloadV2/src/rsc/Tiendas/EstacionDeReparacion/Botones/50.png",
 			"../motherloadV2/src/rsc/Tiendas/EstacionDeReparacion/Botones/100.png",
 			"../motherloadV2/src/rsc/Tiendas/EstacionDeReparacion/Botones/200.png",
@@ -21,9 +19,6 @@ public class VistaEstacionDeReparacion extends VistaEstacionDeMantenimiento {
 	
 	public VistaEstacionDeReparacion(Stage stage, Group root,EstacionDeReparacion estacionDeReparacion, Jugador pj) {
 		super(stage,root,estacionDeReparacion,pj,PATH_FONDO,imagePath,keys);
-		
-		
-		this.tienda = estacionDeReparacion;
 	}
 
 }
