@@ -96,7 +96,7 @@ public class VistaTiendaDeConsumibles {
 	
 	private void crearBotonClose() {
     	this.botones.put("close",new Button("X"));
-	    this.botones.get("close").setPrefSize(SIZE_BOTON, SIZE_BOTON);
+	    this.botones.get("close").setPrefSize(50, 50);
 	    this.botones.get("close").setBackground(Background.EMPTY);
 	    this.botones.get("close").setAlignment(Pos.CENTER);
 	    this.botones.get("close").setFont(new Font(20));
@@ -178,10 +178,11 @@ public class VistaTiendaDeConsumibles {
 		this.inicializarGridPane();
 		this.inicializarBackground();
     	this.crearBotones();
-    	this.crearBotonClose();
     	this.personalizarBotones();
+    	this.crearBotonClose();
 	    this.organizarBotonesEnGridpane();
 		gridPane.getChildren().addAll(botones.get("tanqueExtra"),botones.get("nanobots"),botones.get("dinamita"),botones.get("explosivos"),botones.get("teleport"));
+		gridPane.getStylesheets().add(getClass().getResource("botones.css").toExternalForm());
 		sPane = new StackPane();
 	    sPane.getChildren().addAll(gridPane,botones.get("close"));
 	    StackPane.setMargin(gridPane,new Insets(0,0,0,0));

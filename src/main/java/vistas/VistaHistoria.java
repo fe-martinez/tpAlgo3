@@ -41,7 +41,7 @@ public class VistaHistoria {
 			,"Una noche de verano, la princesa Cat-Lynn estaba de cumpleaños.\nDecidió invitar a todo el pueblo a su fiesta.\r\n"
 			,"Pero esa noche era muy importante\nno solo porque era el cumpleaños n°20 de la princesa\nsino también porque hoy sería coronada como la reina de su asteroide\nel asteroide B612.\r\n"
 			,"Para esto, la princesa debía pasar por la ceremonia ancestral de coronación\ndonde se le entregaría la mágica rosa de la cosmovision.\r\n"
-			,"(TEXTO SOBRE LA ROSA)\r\n"
+			,"La rosa es una parte vital de la ceremonia\n y el concejo de ancianos del pueblo respeta a rajatabla las tradiciones\r\n"
 			,"Sin embargo, durante la celebración\nsonidos extraños comenzaron a escucharse.\r\n"
 			,"..."
 			,"Lo siguiente que supo la princesa\nfue que la flor había sido robada.\r\n"

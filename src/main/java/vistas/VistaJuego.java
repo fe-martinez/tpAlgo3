@@ -205,8 +205,10 @@ public class VistaJuego {
 			context.drawImage(imagenes.get(4), screenX, screenY - 48);
 		} else if(tiendas.getTiendaPos(posX) instanceof EstacionDeReparacion) {
 			context.drawImage(imagenes.get(5), screenX, screenY - 48);
-		} else if(tiendas.getTiendaPos(posX) instanceof TiendaDeMejoras || tiendas.getTiendaPos(posX) instanceof TiendaDeConsumibles) {
+		} else if(tiendas.getTiendaPos(posX) instanceof TiendaDeMejoras) {
 			context.drawImage(imagenes.get(6), screenX, screenY - 48);
+		} else if(tiendas.getTiendaPos(posX) instanceof TiendaDeConsumibles){
+			context.drawImage(imagenes.get(7), screenX, screenY - 48);
 		}
 	}
 	
@@ -255,6 +257,7 @@ public class VistaJuego {
 		imagenes.add(CreadorDeImagenes.obtenerImagen("src/rsc/Shops/Venta128.png", 128, 128));
 		imagenes.add(CreadorDeImagenes.obtenerImagen("src/rsc/Shops/Repair128.png", 128, 128));
 		imagenes.add(CreadorDeImagenes.obtenerImagen("src/rsc/Shops/Upgrade128.png", 128, 128));
+		imagenes.add(CreadorDeImagenes.obtenerImagen("src/rsc/Shops/Consumibles128.png", 128, 128));
     	return imagenes;
     }
       
