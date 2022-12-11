@@ -1,0 +1,5 @@
+screenWidth=1024.0
+screenHeight=768.0
+dificultad=1000
+volumen=0.3
+teclas=[Up, Down, Right, Left]
