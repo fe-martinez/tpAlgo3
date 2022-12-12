@@ -41,8 +41,10 @@ public class Juego {
 	public Juego(int ancho, int alto, ConfigJuego configs) {
 		this.suelo = new Suelo(ancho, alto);
 		this.jugador = new Jugador(5, 3, alto, ancho);
-		if(configs.getDificultad() == VALUE_DIFICULTAD_MUY_FACIL) {
-			this.jugador.setDinero(1500000);
+		if(configs != null) {
+			if(configs.getDificultad() == VALUE_DIFICULTAD_MUY_FACIL) {
+				this.jugador.setDinero(1500000);
+			}
 		}
 		this.tiendas = new PisoSuperior(jugador);
 		this.gameSaver = new GuardarPartida(jugador, suelo);
